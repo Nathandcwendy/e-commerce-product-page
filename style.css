@@ -206,18 +206,19 @@ button {
 
 @media (max-width: 450px) {
   .Nav {
-    gap: 2rem;
+    gap: 1rem;
   }
 }
 
 @media (max-width: 310px) {
   .Nav {
-    gap: 1rem;
+    gap: 0.5rem;
   }
 }
 
 .menu {
   display: none;
+  padding: 0 0.5rem;
 }
 
 @media (max-width: 610px) {
@@ -623,8 +624,15 @@ button {
   }
 }
 
-.Nav-mobile.act .close-icon-mobile path {
+/* .Nav-mobile.act .close-icon-mobile path {
   fill: var(--LightBlack);
+} */
+
+.close {
+  padding: 0.4rem;
+  display: inline-block;
+  width: max-content;
+  transform: translateX(-0.4rem);
 }
 
 .hasHover .close-icon-mobile:hover {
