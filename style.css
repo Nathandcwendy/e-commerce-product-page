@@ -28,6 +28,7 @@ lightbox background) */
   --Fontsize-p: 16px;
   --p1: calc(0.9rem + 0.5vw);
   --p2: calc(0.7rem + 0.5vw);
+  --p-new-item-text: calc(0.85rem + 0.5vw);
   --h1: calc(2.3rem + 1vw);
   --h2: calc(1.3rem + 1vw);
   --h3: calc(1.2rem + 1vw);
@@ -387,9 +388,25 @@ button {
   font-size: var(--p1);
 }
 
+.cart.small-screen .new-item-text-content {
+  font-size: var(--p-new-item-text);
+}
+
+@media (min-width: 1070px) {
+  .new-item-text-content {
+    font-size: 17px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .new-item-text-content {
+    font-size: 19px;
+  }
+}
+
 @media (min-width: 1500px) {
   .new-item-text-content {
-    font-size: 22px;
+    font-size: 20px;
   }
 }
 
