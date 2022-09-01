@@ -152,8 +152,8 @@ const handleAddToCart = (val) => {
         cartItemCount = 0;
       }
       if (cartItemCount === 0) {
-        cartItemContainerLargeScreen.innerHTML = `<p id="empty-cart" class="empty-cart">Your cart is empty</p>`;
-        cartItemContainerSmallScreen.innerHTML = `<p id="empty-cart" class="empty-cart">Your cart is empty</p>`;
+        cartItemContainerLargeScreen.innerHTML = `<p id="empty-cart-large-screen" class="empty-cart">Your cart is empty</p>`;
+        cartItemContainerSmallScreen.innerHTML = `<p id="empty-cart-small-screen" class="empty-cart">Your cart is empty</p>`;
         cartNotification.textContent = "0";
       }
       isCartAdded = false;
@@ -299,14 +299,14 @@ function handleLightBox() {
 }
 
 function handleNavMobile() {
-  if (window.innerWidth < 610) {
+  if (window.innerWidth < 630) {
     navMobile.classList.toggle("active");
     disableScroll();
   }
 }
 
 function handleNavMobileResize() {
-  if (window.innerWidth > 610) {
+  if (window.innerWidth > 630) {
     navMobile.classList.add("disabled");
     if (!lightBox.classList.contains("active")) {
       enableScroll();
@@ -510,7 +510,7 @@ window.onclick = function (e) {
     }
   }
 
-  if (e.target == navMobile && window.innerWidth < 610) {
+  if (e.target == navMobile && window.innerWidth < 630) {
     navMobile.classList.remove("active");
     if (!lightBox.classList.contains("active")) {
       enableScroll();
