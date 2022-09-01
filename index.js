@@ -352,6 +352,15 @@ cartTop.addEventListener("click", (e) => {
     cartTop.dataset.cart = true;
     cartLargeScreen.classList.toggle("active");
     cartSmallScreen.classList.toggle("active");
+    let scrollTop = window.scrollY;
+    if (scrollTop != 0) {
+      cartSmallScreen.style.top = `calc(${scrollTop}px + 53px)`;
+      console.log(scrollTop);
+    }
+
+    if (scrollTop == 0) {
+      cartSmallScreen.style.top = ``;
+    }
   }
 });
 
@@ -365,6 +374,15 @@ cartNotification.addEventListener("click", (e) => {
     cartTop.dataset.cart = true;
     cartLargeScreen.classList.toggle("active");
     cartSmallScreen.classList.toggle("active");
+    let scrollTop = window.scrollY;
+    if (scrollTop != 0) {
+      cartSmallScreen.style.top = `calc(${scrollTop}px + 53px)`;
+      console.log(scrollTop);
+    }
+
+    if (scrollTop == 0) {
+      cartSmallScreen.style.top = ``;
+    }
   }
 });
 

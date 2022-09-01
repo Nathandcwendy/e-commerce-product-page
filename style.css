@@ -39,6 +39,7 @@ lightbox background) */
   --image-width-light: calc(28rem + 5vw);
   --image-height-light: calc(23rem + 5vw);
   --profile-pic: calc(1.5rem + 2vw);
+  --container-width: 90vw;
 }
 
 *,
@@ -73,6 +74,8 @@ body {
   justify-content: center;
   flex-direction: column;
   overflow-y: auto;
+  overflow-x: hidden;
+  background-color: var(white);
 }
 
 button {
@@ -80,7 +83,7 @@ button {
   outline: 0;
 }
 
-.container {
+/* .container {
   width: 90vw;
   max-width: 1500px;
   height: 100%;
@@ -91,29 +94,52 @@ button {
   justify-content: center;
   gap: 3rem;
   margin-bottom: 1rem;
+} */
+
+.container {
+  width: var(--container-width);
+  max-width: 1500px;
+  height: 100%;
+  padding: 1rem 2rem 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 3rem;
+  margin-bottom: 1rem;
+  position: relative;
+  padding-top: 7rem;
 }
 
 @media (max-width: 950px) {
-  .container {
+  /* .container {
     width: 95vw;
+  } */
+  :root {
+    --container-width: 95vw;
   }
 }
 
 @media (max-width: 910px) {
-  .container {
+  /* .container {
     width: 100vw;
+  } */
+  :root {
+    --container-width: 100vw;
   }
 }
 
 @media (max-width: 850px) {
   .container {
     padding: 1rem 1rem 0;
+    padding-top: 7rem;
   }
 }
 
 @media (max-width: 610px) {
   .container {
     padding: 1rem 2rem 0;
+    padding-top: 5rem;
     gap: 0;
   }
 }
@@ -121,10 +147,11 @@ button {
 @media (max-width: 450px) {
   .container {
     padding: 1rem;
+    padding-top: 5rem;
   }
 }
 
-.Header {
+/* .Header {
   display: flex;
   justify-content: space-between;
   width: 100%;
@@ -132,11 +159,40 @@ button {
   padding-bottom: 1rem;
   position: sticky;
   z-index: 10;
+} */
+
+.Header {
+  display: flex;
+  justify-content: space-between;
+  width: var(--container-width);
+  border-bottom: 1px solid var(--Grayishblue);
+  padding-bottom: 1rem;
+  position: fixed;
+  z-index: 10;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: var(--White);
+  padding-top: 1rem;
 }
+
+/* Code to test Fixed NavBar */
+@media (max-width: 910px) {
+  .Header {
+    padding: 1rem 1rem;
+  }
+}
+/* #################### */
 
 @media (max-width: 610px) {
   .Header {
     border-bottom: 0;
+  }
+}
+
+@media (max-width: 450px) {
+  .Header {
+    width: 100vw;
   }
 }
 
@@ -472,6 +528,7 @@ button {
 
 .cart-container {
   position: relative;
+  top: 5px;
 }
 
 .notify-cart-count {
@@ -530,6 +587,20 @@ button {
   z-index: 21;
 }
 
+.Nav-mobile-container.active {
+  background-color: rgba(0, 0, 0, 0);
+  animation: Nav-mobile-container 0.4s linear 0.1s 1 forwards;
+}
+
+@keyframes Nav-mobile-container {
+  from {
+    background-color: rgba(0, 0, 0, 0);
+  }
+  to {
+    background-color: rgba(0, 0, 0, 0.8);
+  }
+}
+
 .Nav-mobile {
   background-color: var(--White);
   height: 100%;
@@ -538,9 +609,21 @@ button {
   flex-direction: column;
   gap: 3rem;
   width: 50%;
+  transform-origin: 0 0;
+  transform: translateX(-100%);
+  animation: nav-mobile 0.4s linear 0.1s 1 forwards;
 }
 
-.close-icon-mobile path {
+@keyframes nav-mobile {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+.Nav-mobile.act .close-icon-mobile path {
   fill: var(--LightBlack);
 }
 
@@ -688,7 +771,7 @@ button {
 .main-image {
   position: relative;
   cursor: pointer;
-  z-index: -1;
+  z-index: 3;
 }
 
 .main-img {
@@ -701,6 +784,12 @@ button {
 }
 
 @media (max-width: 610px) {
+  .main-img {
+    border-radius: 1rem;
+  }
+}
+
+@media (max-width: 450px) {
   .main-img {
     border-radius: 0;
   }
@@ -871,6 +960,8 @@ button {
   display: flex;
   width: var(--image-width);
   justify-content: space-between;
+  position: relative;
+  z-index: 2;
 }
 
 @media (max-width: 610px) {
@@ -894,6 +985,8 @@ button {
   background-repeat: no-repeat;
   background-size: 105% 105%;
   background-position: center;
+  position: relative;
+  z-index: 2;
 }
 
 .hasHover .thumb-container:hover {
@@ -1011,13 +1104,13 @@ button {
 
 @media (max-width: 610px) {
   .thumb-container-light {
-    width: calc(var(--image-width-light) / 4 - 1rem);
+    width: calc(var(--image-width-light) / 4 - 3rem);
   }
 }
 
 @media (max-width: 510px) {
   .thumb-container-light {
-    width: calc(var(--image-width-light) / 4 - 1rem);
+    width: calc(var(--image-width-light) / 4 - 3rem);
   }
 }
 
@@ -1158,6 +1251,20 @@ button {
 
 .minus,
 .plus {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.3rem 0.4rem;
+  border-radius: 50%;
+  height: auto;
+}
+
+.minus {
+  height: 21.5px;
+}
+
+.minus-sign,
+.plus-sign {
   width: 1rem;
   height: auto;
   touch-action: manipulation;
@@ -1169,8 +1276,9 @@ button {
   opacity: 0.5;
 }
 
-.minus {
+.minus-sign {
   height: 0.5rem;
+  transform: translateY(25%);
 }
 
 .count-value {
