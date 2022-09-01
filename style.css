@@ -1159,6 +1159,7 @@ button {
 .plus {
   width: 1rem;
   height: auto;
+  touch-action: manipulation;
 }
 
 .hasHover .minus:hover,
