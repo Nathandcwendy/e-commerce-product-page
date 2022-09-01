@@ -1153,6 +1153,7 @@ button {
   gap: 3rem;
   border-radius: 10px;
   font-weight: 700;
+  touch-action: manipulation;
 }
 
 .minus,
