@@ -170,14 +170,14 @@ function handleAdd() {
   let getCount = Number(count.textContent);
   count.textContent = getCount + 1;
   // cartNotification.textContent = count.textContent;
-  if (Number(count.textContent) > 0) {
-    cartItemCount = 1;
-  }
-  if (isCartAdded) {
-    isCartAdded = false;
-    cartNotification.textContent = count.textContent;
-    handleAddToCart(count.textContent);
-  }
+  // if (Number(count.textContent) > 0) {
+  //   cartItemCount = 1;
+  // }
+  // if (isCartAdded) {
+  //   isCartAdded = false;
+  //   cartNotification.textContent = count.textContent;
+  //   handleAddToCart(count.textContent);
+  // }
 }
 
 function handleMinus() {
@@ -188,14 +188,14 @@ function handleMinus() {
     count.textContent = getCount - 1;
     // cartNotification.textContent = count.textContent;
   }
-  if (count.textContent === 0) {
-    cartItemCount = 0;
-  }
-  if (isCartAdded) {
-    isCartAdded = false;
-    cartNotification.textContent = count.textContent;
-    handleAddToCart(count.textContent);
-  }
+  // if (count.textContent === 0) {
+  //   cartItemCount = 0;
+  // }
+  // if (isCartAdded) {
+  //   isCartAdded = false;
+  //   cartNotification.textContent = count.textContent;
+  //   handleAddToCart(count.textContent);
+  // }
 }
 
 function handleThumbnails(index) {
@@ -490,6 +490,7 @@ addToCartButton.addEventListener("click", (e) => {
     cartNotification.textContent = 1;
   }
   handleAddToCart();
+  isCartAdded = false;
 });
 
 // Event To Check If Modal/Mobile Nav Is Active And Trigger Scrolling On/Off As The Case May Be
