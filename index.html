@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./images/favicon-32x32.png"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <script src="./index.js" defer></script>
+
+    <title>Frontend Mentor | E-commerce product page</title>
+
+    <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+  </head>
+  <body>
+    <div class="container">
+      <header class="Header">
+        <nav class="Nav">
+          <div class="menu">
+            <img
+              id="menu-icon"
+              class="menu-icon"
+              src="./images/icon-menu.svg"
+              alt=""
+            />
+          </div>
+          <div class="logo">
+            <img src="./images/logo.svg" alt="logo" />
+          </div>
+          <ul class="nav-list">
+            <li class="nav-links"><a href="#">Collections</a></li>
+            <li class="nav-links"><a href="#">Men</a></li>
+            <li class="nav-links"><a href="#">Women</a></li>
+            <li class="nav-links"><a href="#">About</a></li>
+            <li class="nav-links"><a href="#">Contact</a></li>
+          </ul>
+        </nav>
+        <section class="right-nav">
+          <div class="cart-container">
+            <svg
+              class="cart-icon cart-top"
+              data-cart="false"
+              id="cart-top"
+              width="22"
+              height="20"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M20.925 3.641H3.863L3.61.816A.896.896 0 0 0 2.717 0H.897a.896.896 0 1 0 0 1.792h1l1.031 11.483c.073.828.52 1.726 1.291 2.336C2.83 17.385 4.099 20 6.359 20c1.875 0 3.197-1.87 2.554-3.642h4.905c-.642 1.77.677 3.642 2.555 3.642a2.72 2.72 0 0 0 2.717-2.717 2.72 2.72 0 0 0-2.717-2.717H6.365c-.681 0-1.274-.41-1.53-1.009l14.321-.842a.896.896 0 0 0 .817-.677l1.821-7.283a.897.897 0 0 0-.87-1.114ZM6.358 18.208a.926.926 0 0 1 0-1.85.926.926 0 0 1 0 1.85Zm10.015 0a.926.926 0 0 1 0-1.85.926.926 0 0 1 0 1.85Zm2.021-7.243-13.8.81-.57-6.341h15.753l-1.383 5.53Z"
+                fill="#69707D"
+                fill-rule="nonzero"
+              />
+            </svg>
+            <div class="notify-cart-count" id="notify-cart-count" tabindex="0">
+              0
+            </div>
+          </div>
+
+          <img
+            class="profile-pic"
+            src="./images/image-avatar.png"
+            alt="profile picture"
+          />
+          <div class="cart large-screen" id="cart-large-screen">
+            <h3>Cart</h3>
+            <div class="cart-items" id="cart-items-large-screen">
+              <p id="empty-cart" class="empty-cart">Your cart is empty</p>
+            </div>
+          </div>
+        </section>
+      </header>
+      <section class="Nav-mobile-container modal" id="Nav-mobile-container">
+        <div class="Nav-mobile">
+          <svg
+            class="close-icon-mobile"
+            id="close-icon-mobile"
+            width="14"
+            height="15"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="m11.596.782 2.122 2.122L9.12 7.499l4.597 4.597-2.122 2.122L7 9.62l-4.595 4.597-2.122-2.122L4.878 7.5.282 2.904 2.404.782l4.595 4.596L11.596.782Z"
+              fill="#000"
+              fill-rule="evenodd"
+            />
+          </svg>
+          <ul class="nav-list-mobile">
+            <li class="nav-links-mobile"><a href="#">Collections</a></li>
+            <li class="nav-links-mobile"><a href="#">Men</a></li>
+            <li class="nav-links-mobile"><a href="#">Women</a></li>
+            <li class="nav-links-mobile"><a href="#">About</a></li>
+            <li class="nav-links-mobile"><a href="#">Contact</a></li>
+          </ul>
+        </div>
+      </section>
+      <main class="Main">
+        <section class="left-main">
+          <div class="main-image" id="slides-container">
+            <img
+              class="main-img"
+              src="./images/image-product-1.jpg"
+              alt="Product Image"
+              data-show="true"
+            />
+            <img
+              class="main-img"
+              src="./images/image-product-2.jpg"
+              alt="Product Image"
+              data-show="false"
+            />
+            <img
+              class="main-img"
+              src="./images/image-product-3.jpg"
+              alt="Product Image"
+              data-show="false"
+            />
+            <img
+              class="main-img"
+              src="./images/image-product-4.jpg"
+              alt="Product Image"
+              data-show="false"
+            />
+            <div class="slide slide-left" id="previous">
+              <!-- <img
+                class="slide-icon-left"
+                src="./images/icon-previous.svg"
+                alt="previous-slide"
+              /> -->
+              <svg
+                class="slide-icon-left"
+                width="18"
+                height="18"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M11 1 3 9l8 8"
+                  stroke="#1D2026"
+                  stroke-width="3"
+                  fill="none"
+                  fill-rule="evenodd"
+                />
+              </svg>
+            </div>
+            <div class="slide slide-right" id="next">
+              <!-- <img
+                class="slide-icon-right"
+                src="./images/icon-next.svg"
+                alt="next-slide"
+              /> -->
+              <svg
+                class="slide-icon-right"
+                width="18"
+                height="18"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="m2 1 8 8-8 8"
+                  stroke="#1D2026"
+                  stroke-width="3"
+                  fill="none"
+                  fill-rule="evenodd"
+                />
+              </svg>
+            </div>
+            <div class="cart small-screen" id="cart-small-screen">
+              <h3>Cart</h3>
+              <div class="cart-items" id="cart-items-small-screen">
+                <p id="empty-cart" class="empty-cart">Your cart is empty</p>
+              </div>
+            </div>
+          </div>
+          <div class="thumbnails">
+            <div class="thumb-container thumb-1" data-active="false">
+              <!-- <img
+                src="./images/image-product-1-thumbnail.jpg"
+                alt=""
+                class="thumb-img"
+              /> -->
+            </div>
+            <div class="thumb-container thumb-2" data-active="false">
+              <!-- <img
+                src="./images/image-product-2-thumbnail.jpg"
+                alt=""
+                class="thumb-img"
+              /> -->
+            </div>
+            <div class="thumb-container thumb-3" data-active="false">
+              <!-- <img
+                src="./images/image-product-3-thumbnail.jpg"
+                alt=""
+                class="thumb-img"
+              /> -->
+            </div>
+            <div class="thumb-container thumb-4" data-active="false">
+              <!-- <img
+                src="./images/image-product-4-thumbnail.jpg"
+                alt=""
+                class="thumb-img"
+              /> -->
+            </div>
+          </div>
+        </section>
+        <section class="left-main-light modal" id="left-main-light">
+          <div class="main-image-light" id="slides-container-light">
+            <svg
+              class="close-icon"
+              id="close-icon"
+              width="14"
+              height="15"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="m11.596.782 2.122 2.122L9.12 7.499l4.597 4.597-2.122 2.122L7 9.62l-4.595 4.597-2.122-2.122L4.878 7.5.282 2.904 2.404.782l4.595 4.596L11.596.782Z"
+                fill="#fff"
+                fill-rule="evenodd"
+              />
+            </svg>
+            <img
+              class="main-img-light"
+              src="./images/image-product-1.jpg"
+              alt="Product Image"
+              data-show="true"
+            />
+            <img
+              class="main-img-light"
+              src="./images/image-product-2.jpg"
+              alt="Product Image"
+              data-show="false"
+            />
+            <img
+              class="main-img-light"
+              src="./images/image-product-3.jpg"
+              alt="Product Image"
+              data-show="false"
+            />
+            <img
+              class="main-img-light"
+              src="./images/image-product-4.jpg"
+              alt="Product Image"
+              data-show="false"
+            />
+            <div class="slide-light slide-left-light" id="previous-light">
+              <!-- <img
+                class="slide-icon-left-light"
+                src="./images/icon-previous.svg"
+                alt="previous-slide"
+              /> -->
+              <svg
+                class="slide-icon-left-light"
+                width="18"
+                height="18"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M11 1 3 9l8 8"
+                  stroke="#1D2026"
+                  stroke-width="3"
+                  fill="none"
+                  fill-rule="evenodd"
+                />
+              </svg>
+            </div>
+            <div class="slide-light slide-right-light" id="next-light">
+              <!-- <img
+                class="slide-icon-right-light"
+                src="./images/icon-next.svg"
+                alt="next-slide"
+              /> -->
+              <svg
+                class="slide-icon-right-light"
+                width="18"
+                height="18"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="m2 1 8 8-8 8"
+                  stroke="#1D2026"
+                  stroke-width="3"
+                  fill="none"
+                  fill-rule="evenodd"
+                />
+              </svg>
+            </div>
+          </div>
+          <div class="thumbnails-light">
+            <div class="thumb-container-light thumb-1-light" data-active="true">
+              <!-- <img
+                src="./images/image-product-1-thumbnail.jpg"
+                alt=""
+                class="thumb-img"
+              /> -->
+            </div>
+            <div
+              class="thumb-container-light thumb-2-light"
+              data-active="false"
+            >
+              <!-- <img
+                src="./images/image-product-2-thumbnail.jpg"
+                alt=""
+                class="thumb-img"
+              /> -->
+            </div>
+            <div
+              class="thumb-container-light thumb-3-light"
+              data-active="false"
+            >
+              <!-- <img
+                src="./images/image-product-3-thumbnail.jpg"
+                alt=""
+                class="thumb-img"
+              /> -->
+            </div>
+            <div
+              class="thumb-container-light thumb-4-light"
+              data-active="false"
+            >
+              <!-- <img
+                src="./images/image-product-4-thumbnail.jpg"
+                alt=""
+                class="thumb-img"
+              /> -->
+            </div>
+          </div>
+        </section>
+        <section class="right-main">
+          <div class="product-text">
+            <h2 class="company-name">Sneaker Company</h2>
+            <h1 class="product-title" id="product-title">
+              Fall Limited Edition Sneakers
+            </h1>
+            <p class="product-description">
+              These low-profile sneakers are your perfect casual wear companion.
+              Featuring a durable rubber outer sole, they’ll withstand
+              everything the weather can offer.
+            </p>
+          </div>
+          <div class="product-price">
+            <div class="price-real">
+              <h3 class="price-tag" id="price">$125.00</h3>
+              <h4 class="price-discount">50%</h4>
+            </div>
+            <div class="price-slash">
+              <p class="slash-price">$250.00</p>
+            </div>
+          </div>
+          <div class="product-cart">
+            <div class="product-count">
+              <img
+                class="minus"
+                id="minus-sign"
+                src="./images/icon-minus.svg"
+                alt="minus"
+              />
+              <p class="count-value" id="count">0</p>
+              <img
+                class="plus"
+                id="plus-sign"
+                src="./images/icon-plus.svg"
+                alt="plus"
+              />
+            </div>
+            <button class="add-to-cart" id="add-to-cart">
+              <!-- <img
+                class="cart-icon cart-bottom"
+                src="./images/icon-cart.svg"
+                alt="cart"
+              /> -->
+              <svg
+                class="cart-bottom"
+                width="22"
+                height="20"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M20.925 3.641H3.863L3.61.816A.896.896 0 0 0 2.717 0H.897a.896.896 0 1 0 0 1.792h1l1.031 11.483c.073.828.52 1.726 1.291 2.336C2.83 17.385 4.099 20 6.359 20c1.875 0 3.197-1.87 2.554-3.642h4.905c-.642 1.77.677 3.642 2.555 3.642a2.72 2.72 0 0 0 2.717-2.717 2.72 2.72 0 0 0-2.717-2.717H6.365c-.681 0-1.274-.41-1.53-1.009l14.321-.842a.896.896 0 0 0 .817-.677l1.821-7.283a.897.897 0 0 0-.87-1.114ZM6.358 18.208a.926.926 0 0 1 0-1.85.926.926 0 0 1 0 1.85Zm10.015 0a.926.926 0 0 1 0-1.85.926.926 0 0 1 0 1.85Zm2.021-7.243-13.8.81-.57-6.341h15.753l-1.383 5.53Z"
+                  fill="#69707D"
+                  fill-rule="nonzero"
+                />
+              </svg>
+              <p class="add-cart">Add to cart</p>
+            </button>
+          </div>
+        </section>
+      </main>
+      <footer class="Footer">
+        <p>
+          Challenge by
+          <a
+            class="attribution"
+            href="https://www.frontendmentor.io?ref=challenge"
+            target="_blank"
+            >Frontend Mentor</a
+          >
+        </p>
+        <p>Coded by <a class="coder" href="#">Nate</a></p>
+      </footer>
+    </div>
+  </body>
+  <script>
+    // const images = document.querySelectorAll(".main-img");
+    // const thumbnails = document.querySelectorAll(".thumb-container");
+    // const previousIcon = document.querySelector("#previous");
+    // const nextIcon = document.querySelector("#next");
+    // const count = document.querySelector("#count");
+    // const plus = document.querySelector("#plus-sign");
+    // const minus = document.querySelector("#minus-sign");
+    // const cartTop = document.querySelector("#cart-top");
+    // const cart = document.querySelector("#cart");
+    // const productTitle = document.querySelector("#product-title");
+    // const price = document.querySelector("#price");
+    // const backgroundImageUrl = "./images/";
+
+    // let slideIndex = 0;
+    // images[slideIndex].dataset.show = true;
+
+    // function handleAdd() {
+    //   let getCount = Number(count.textContent);
+    //   count.textContent = getCount + 1;
+    // }
+
+    // function handleMinus() {
+    //   let getCount = Number(count.textContent);
+    //   if (getCount <= 0) {
+    //     count.textContent = 0;
+    //   } else {
+    //     count.textContent = getCount - 1;
+    //   }
+    // }
+
+    // function handleThumbnails(index) {
+    //   let newIndex = index;
+    //   images[slideIndex].dataset.show = false;
+    //   images[newIndex].dataset.show = true;
+    //   thumbnails[newIndex].dataset.active = true;
+    //   thumbnails[slideIndex].dataset.active = false;
+    //   slideIndex = newIndex;
+    //   console.log(
+    //     window.getComputedStyle(thumbnails[slideIndex], false).backgroundImage
+    //   );
+    // }
+
+    // function handlePrevious() {
+    //   if (slideIndex === 0) {
+    //     let newIndex = images.length - 1;
+    //     images[slideIndex].dataset.show = false;
+    //     images[newIndex].dataset.show = true;
+    //     slideIndex = newIndex;
+    //   } else {
+    //     let newIndex = slideIndex - 1;
+    //     images[slideIndex].dataset.show = false;
+    //     images[newIndex].dataset.show = true;
+    //     slideIndex = newIndex;
+    //   }
+    // }
+
+    // function handleNext() {
+    //   if (slideIndex === images.length - 1) {
+    //     let newIndex = 0;
+    //     images[slideIndex].dataset.show = false;
+    //     images[newIndex].dataset.show = true;
+    //     slideIndex = newIndex;
+    //   } else {
+    //     let newIndex = slideIndex + 1;
+    //     images[slideIndex].dataset.show = false;
+    //     images[newIndex].dataset.show = true;
+    //     slideIndex = newIndex;
+    //   }
+    // }
+
+    // previousIcon.addEventListener("click", handlePrevious);
+    // nextIcon.addEventListener("click", handleNext);
+    // plus.addEventListener("click", handleAdd);
+    // minus.addEventListener("click", handleMinus);
+    // cartTop.addEventListener("click", (e) => {
+    //   if (cartTop.dataset.cart == "true") {
+    //     cartTop.dataset.cart = false;
+    //     cart.classList.toggle("active");
+    //   } else {
+    //     cartTop.dataset.cart = true;
+    //     cart.classList.toggle("active");
+    //   }
+    // });
+
+    // console.log(thumbnails);
+
+    // thumbnails.forEach((thumbnail, index) => {
+    //   thumbnail.addEventListener("click", () => handleThumbnails(index));
+    // });
+
+    // let cartItem = document.createElement("div");
+    // cartItem.classList.add(item - description);
+    // cartItem.innerHTML = `<div class='item-description'><div class='item-image'></div><div class='item text'><p>${productTitle.textContent}</p></div> </div>`;
+    // let newItemImage = document.createElement("div");
+    // newItemImage.classList.add("item-image");
+    // newItemImage.style.backgroundImage = `url(backgroundImageUrl)`;
+
+    // let newTitle = document.createElement("p");
+    // newTitle.textContent = productTitle.textContent;
+
+    // let newItemPrice = document.createElement("p");
+    // newItemPrice.textContent = `${price} x ${count.textContent} ${
+    //   Number(price.toString().substr(1)) * Number(count.textContent)
+    // }`;
+    // cartItem.appendChild(newItemImage);
+    // cart.appendChild(cartItem);
+  </script>
+</html>
