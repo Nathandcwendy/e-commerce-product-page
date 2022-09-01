@@ -31,6 +31,10 @@ const closeIconMobile = document.querySelector("#close-icon-mobile");
 const navMobile = document.querySelector("#Nav-mobile-container");
 const menuIcon = document.querySelector("#menu-icon");
 
+// Initialize values for Swipe Event
+let xDown = null;
+let yDown = null;
+
 // initialize Cart Item Count
 let cartItemCount = 0;
 
@@ -335,6 +339,57 @@ function handleLightBoxSmallScreen() {
   }
 }
 
+function getTouches(evt) {
+  return (
+    evt.touches || // browser API
+    evt.originalEvent.touches
+  ); // jQuery
+}
+
+function handleTouchStart(evt) {
+  const firstTouch = getTouches(evt)[0];
+  xDown = firstTouch.clientX;
+  yDown = firstTouch.clientY;
+}
+
+function handleTouchMove(evt) {
+  if (!xDown || !yDown) {
+    return;
+  }
+
+  let xUp = evt.touches[0].clientX;
+  let yUp = evt.touches[0].clientY;
+
+  let xDiff = xDown - xUp;
+  let yDiff = yDown - yUp;
+
+  if (Math.abs(xDiff) > Math.abs(yDiff)) {
+    /*most significant*/
+    if (xDiff > 0) {
+      if (evt.target.classList.contains("main-img")) {
+        handleNext(evt);
+      } else if (evt.target.classList.contains("main-img-light")) {
+        handleNextLight();
+      }
+    } else {
+      if (evt.target.classList.contains("main-img")) {
+        handlePrevious(evt);
+      } else if (evt.target.classList.contains("main-img-light")) {
+        handlePreviousLight();
+      }
+    }
+  } else {
+    if (yDiff > 0) {
+      /* up swipe */
+    } else {
+      /* down swipe */
+    }
+  }
+  /* reset values */
+  xDown = null;
+  yDown = null;
+}
+
 previousIcon.addEventListener("click", handlePrevious);
 nextIcon.addEventListener("click", handleNext);
 previousIconLight.addEventListener("click", handlePreviousLight);
@@ -355,7 +410,6 @@ cartTop.addEventListener("click", (e) => {
     let scrollTop = window.scrollY;
     if (scrollTop != 0) {
       cartSmallScreen.style.top = `calc(${scrollTop}px + 53px)`;
-      console.log(scrollTop);
     }
 
     if (scrollTop == 0) {
@@ -377,7 +431,6 @@ cartNotification.addEventListener("click", (e) => {
     let scrollTop = window.scrollY;
     if (scrollTop != 0) {
       cartSmallScreen.style.top = `calc(${scrollTop}px + 53px)`;
-      console.log(scrollTop);
     }
 
     if (scrollTop == 0) {
@@ -412,9 +465,16 @@ thumbnailsLight.forEach((thumbnail, index) => {
   thumbnail.addEventListener("click", () => handleThumbnailsLight(index));
 });
 
-// Event To Show Modal On Image Click
+// Event To Show Modal On Image Click And Activate Enable Swipe
 images.forEach((image) => {
   image.addEventListener("click", handleLightBox);
+  image.addEventListener("touchstart", handleTouchStart, false);
+  image.addEventListener("touchmove", handleTouchMove, false);
+});
+
+imagesLight.forEach((image) => {
+  image.addEventListener("touchstart", handleTouchStart, false);
+  image.addEventListener("touchmove", handleTouchMove, false);
 });
 
 // Event To Show Mobile Nav On Menu Icon Click
@@ -484,3 +544,6 @@ function watchForHover() {
 }
 
 watchForHover();
+
+// document.addEventListener("touchstart", handleTouchStart, false);
+// document.addEventListener("touchmove", handleTouchMove, false);
