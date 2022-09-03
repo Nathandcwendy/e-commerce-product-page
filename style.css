@@ -80,6 +80,11 @@ body {
   background-color: var(white);
 }
 
+body.no-scrolling {
+  height: 100%;
+  overflow: hidden;
+}
+
 button {
   border: none;
   outline: 0;
@@ -167,6 +172,7 @@ button {
   display: flex;
   justify-content: space-between;
   width: var(--container-width);
+  max-width: 1600px;
   border-bottom: 1px solid var(--Grayishblue);
   padding-bottom: 1rem;
   position: fixed;
@@ -1500,6 +1506,17 @@ button {
 @media (max-width: 260px) {
   html {
     font-size: 12px;
+  }
+}
+
+@media (min-width: 1550px) {
+  :root {
+    --p1: 22px;
+    --p2: 19px;
+    --h1: 53px;
+    --h2: 24px;
+    --h3: 35px;
+    --profile-pic: 55px;
   }
 }
 

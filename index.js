@@ -64,11 +64,14 @@ function disableScroll() {
 
   navMobile.style.left = `${scrollLeft}px`;
   navMobile.style.top = `${scrollTop}px`;
+
+  document.body.classList.add("no-scrolling");
 }
 
 // function to enable scroll
 function enableScroll() {
   window.onscroll = function () {};
+  document.body.classList.remove("no-scrolling");
 }
 
 // Function to add item to cart
