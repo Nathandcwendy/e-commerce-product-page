@@ -1,6 +1,13 @@
 @import url("https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@400;700&display=swap");
 
-/* #####IMCASE OF RESPONSIVE ERROR REPLACE 630px media queries with 610px Here And In JavaScript File*/
+/* #####INCASE OF RESPONSIVE ERROR REPLACE 630px media queries with 610px Here And In JavaScript File*/
+
+/* USE THIS FOR IMAGES
+  img {
+    max-width: 100%
+    line-height: 0;
+    display: block;
+*/
 
 :root {
   /* ## Colors
