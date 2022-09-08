@@ -88,7 +88,7 @@ body {
 }
 
 body.no-scrolling {
-  height: 100vh;
+  height: 100%;
   overflow: hidden;
 }
 
