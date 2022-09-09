@@ -66,12 +66,14 @@ function disableScroll() {
   navMobile.style.top = `${scrollTop}px`;
 
   document.body.classList.add("no-scrolling");
+  window.addEventListener("touchmove", (e) => e.preventDefault(), false);
 }
 
 // function to enable scroll
 function enableScroll() {
   window.onscroll = function () {};
   document.body.classList.remove("no-scrolling");
+  window.removeEventListener("touchmove", (e) => e.preventDefault(), false);
 }
 
 // Function to add item to cart
