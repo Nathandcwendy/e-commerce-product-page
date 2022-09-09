@@ -51,29 +51,37 @@ let slideIndexLight = 0;
 imagesLight[slideIndexLight].dataset.show = true;
 
 // Function to disable Scroll
+// function disableScroll() {
+//   let scrollTop = window.scrollY;
+//   let scrollLeft = window.scrollX;
+
+//   window.onscroll = function () {
+//     window.scrollTo(scrollLeft, scrollTop);
+//   };
+
+//   lightBox.style.left = `${scrollLeft}px`;
+//   lightBox.style.top = `${scrollTop}px`;
+
+//   navMobile.style.left = `${scrollLeft}px`;
+//   navMobile.style.top = `${scrollTop}px`;
+
+//   document.body.classList.add("no-scrolling");
+//   window.addEventListener("touchmove", (e) => e.preventDefault(), false);
+// }
+
 function disableScroll() {
-  let scrollTop = window.scrollY;
-  let scrollLeft = window.scrollX;
-
-  window.onscroll = function () {
-    window.scrollTo(scrollLeft, scrollTop);
-  };
-
-  lightBox.style.left = `${scrollLeft}px`;
-  lightBox.style.top = `${scrollTop}px`;
-
-  navMobile.style.left = `${scrollLeft}px`;
-  navMobile.style.top = `${scrollTop}px`;
-
-  document.body.classList.add("no-scrolling");
-  window.addEventListener("touchmove", (e) => e.preventDefault(), false);
+  return;
 }
 
 // function to enable scroll
+// function enableScroll() {
+//   window.onscroll = function () {};
+//   document.body.classList.remove("no-scrolling");
+//   window.removeEventListener("touchmove", (e) => e.preventDefault(), false);
+// }
+
 function enableScroll() {
-  window.onscroll = function () {};
-  document.body.classList.remove("no-scrolling");
-  window.removeEventListener("touchmove", (e) => e.preventDefault(), false);
+  return;
 }
 
 // Function to add item to cart
